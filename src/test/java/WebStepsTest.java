@@ -10,6 +10,7 @@ public class WebStepsTest {
 
     @Step("Открываем главную страницу ")
     public void openMainPage(){
+
         open("https://github.com/");
     }
 
@@ -21,10 +22,12 @@ public class WebStepsTest {
     }
     @Step("Кликаем по ссылке репозитория{repo}")
     public void clickOnRepository(String repo){
+
         $(linkText(repo)).click();
     }
     @Step("Открываем таб Issues")
     public void openIssuesTab(){
+
         $("#issues-tab").click();
     }
     @Step("Проверяем Issues  с номером {issues} ")
