@@ -1,4 +1,8 @@
+import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selectors.withText;
@@ -33,6 +37,12 @@ public class WebStepsTest {
     @Step("Проверяем Issues  с номером {issues} ")
     public void shouldSeeIssuesWithNumber( int issues){
         $(withText("#"+issues)).should(exist);
+
+    }
+
+    @Attachment(value = "Screenshot", type = "image/png", fileExtension = "png")
+    public byte[] takeScreenhot(){
+       return ((TakesScreenshot)WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
 
     }
 
