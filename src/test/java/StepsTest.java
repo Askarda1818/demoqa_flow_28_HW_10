@@ -36,7 +36,7 @@ public class StepsTest {
         });
 
         step("Проверяем Issues  с номером"+ISSUES, () -> {
-            $(withText("#8"+ISSUES)).should(exist);
+            $(withText("#"+ISSUES)).should(exist);
         });
 
 
