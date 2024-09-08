@@ -1,3 +1,5 @@
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -11,6 +13,7 @@ import static org.openqa.selenium.By.linkText;
 public class SelenideTest {
     @Test
     public  void testIssueSearch(){
+        SelenideLogger.addListener("allure",new AllureSelenide());
         open("https://github.com/");
         $("qbsearch-input[class='search-input']").click();
         $("#query-builder-test").sendKeys("eroshenkoam/allure-example");
